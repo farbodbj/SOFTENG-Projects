@@ -13,18 +13,18 @@ public class ReportGenerator {
         this.wageCalculator = wageCalculator;
     }
 
-    void RegisterWorker(Worker worker) {
+    public void RegisterWorker(Worker worker) {
         if (workers.containsKey(worker.getIdnumber())) {
             throw new RuntimeException("Worker already exists");
         }
         workers.put(worker.getIdnumber(), worker);
     }
-    void UnregisterWorker(Worker worker) {
+    public void UnregisterWorker(Worker worker) {
         workers.remove(worker.getIdnumber());
     }
 
 
-    SalaryReport GetSalaryReport() {
+    public SalaryReport GetSalaryReport() {
         float fullSum = 0;
         int baseSum = 0;
         for (int key : this.workers.keySet()) {
@@ -38,7 +38,7 @@ public class ReportGenerator {
     }
 
 
-    void PrintSalaryReport() {
+    public void PrintSalaryReport() {
         for (int key : this.workers.keySet()) {
             Worker worker = this.workers.get(key);
 
